@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Requests | MealBridge</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/requests.css">
+
+</head>
+
+
+<body class="requests-page">
+
+
+<header class="requests-nav">
+
+    <div class="requests-logo">
+
+        🍱 Meal<span>Bridge</span>
+
+    </div>
+
+
+    <div class="requests-user-area">
+
+        <strong id="requestsUserName">
+            Mess Staff
+        </strong>
+
+
+        <button
+            onclick="logout()"
+            class="requests-logout">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main class="requests-container">
+
+
+    <div class="requests-top">
+
+        <button
+            class="request-back"
+            onclick="window.location.href='mess-dashboard.html'">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+
+    <section class="requests-heading">
+
+        <span>
+            MEALBRIDGE • FOOD RESCUE
+        </span>
+
+        <h1>
+            Incoming Requests 🤝
+        </h1>
+
+        <p>
+            Review and manage requests from NGOs.
+        </p>
+
+    </section>
+
+
+    <div
+        id="requestsList"
+        class="requests-list">
+
+        <div class="request-loading">
+
+            <div class="request-spinner"></div>
+
+            Loading requests...
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<div
+    id="requestToast"
+    class="request-toast">
+
+    <span id="requestToastIcon">
+        ✓
+    </span>
+
+    <span id="requestToastMessage">
+        Done
+    </span>
+
+</div>
+
+
+<script src="js/requests.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mess Dashboard | MealBridge</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/mess-dashboard.css">
+
+</head>
+
+
+<body class="mess-dashboard-page">
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="meal-nav">
+
+    <div class="meal-logo">
+
+        <span class="logo-icon">🍱</span>
+
+        <span class="logo-main">
+            Meal
+        </span>
+
+        <span class="logo-green">
+            Bridge
+        </span>
+
+    </div>
+
+
+    <div class="meal-user-area">
+
+        <div class="meal-user">
+
+            <span class="user-role">
+                MESS STAFF
+            </span>
+
+            <strong id="navUserName">
+                Mess Staff
+            </strong>
+
+        </div>
+
+
+        <button
+            class="meal-logout-btn"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN DASHBOARD
+===================================================== -->
+
+<main class="meal-dashboard">
+
+
+    <!-- =================================================
+         WELCOME BANNER
+    ================================================== -->
+
+    <section class="welcome-banner">
+
+        <div class="welcome-content">
+
+            <span class="welcome-label">
+                MESS DASHBOARD
+            </span>
+
+            <h1>
+                Hello, <span id="welcomeUserName">Mess Staff</span>!
+                👋
+            </h1>
+
+            <p>
+                Let's rescue today's surplus food.
+            </p>
+
+        </div>
+
+
+        <div class="welcome-food-icon">
+            🍱
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         STAT CARDS
+    ================================================== -->
+
+    <section class="stats-grid">
+
+
+        <button
+            class="stat-card stat-card-button"
+            onclick="openMyFood()">
+
+            <div class="stat-icon food-stat-icon">
+                🍱
+            </div>
+
+            <div
+                class="stat-number"
+                id="foodDonationCount">
+                0
+            </div>
+
+            <div class="stat-title">
+                Food Donations
+            </div>
+
+            <span class="stat-arrow">
+                →
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="stat-card stat-card-button"
+            onclick="openRequests()">
+
+            <div class="stat-icon request-stat-icon">
+                🤝
+            </div>
+
+            <div
+                class="stat-number"
+                id="requestCount">
+                0
+            </div>
+
+            <div class="stat-title">
+                Incoming Requests
+            </div>
+
+            <span class="stat-arrow request-arrow">
+                →
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="stat-card stat-card-button impact-card"
+            onclick="showImpact()">
+
+            <div class="stat-icon impact-stat-icon">
+                ❤️
+            </div>
+
+            <div
+                class="stat-number impact-text"
+                id="rescuedMealsCount">
+                0
+            </div>
+
+            <div class="stat-title">
+                Meals Rescued
+            </div>
+
+            <span class="stat-arrow impact-arrow">
+                →
+            </span>
+
+        </button>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MAIN ACTIONS
+    ================================================== -->
+
+    <section class="dashboard-actions">
+
+
+        <button
+            class="post-food-button"
+            onclick="openPostFood()">
+
+            <span>
+                +
+            </span>
+
+            Post Food Donation
+
+        </button>
+
+
+        <button
+            class="dashboard-secondary-button"
+            onclick="openMyFood()">
+
+            🍱
+
+            <span>
+                My Food
+            </span>
+
+        </button>
+
+
+        <button
+            class="dashboard-secondary-button"
+            onclick="openRequests()">
+
+            🤝
+
+            <span>
+                Requests
+            </span>
+
+        </button>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         CONTENT GRID
+    ================================================== -->
+
+    <section class="dashboard-content-grid">
+
+
+        <!-- =================================================
+             RECENT DONATIONS
+        ================================================== -->
+
+        <div class="dashboard-panel">
+
+
+            <div class="panel-header">
+
+                <div class="panel-title">
+
+                    <span class="panel-icon">
+                        🍱
+                    </span>
+
+                    <h2>
+                        Recent Donations
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="view-all-button"
+                    onclick="openMyFood()">
+
+                    View All →
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="recentDonations"
+                class="recent-list">
+
+                <div class="loading-state">
+                    <div class="loading-spinner"></div>
+                    Loading donations...
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             INCOMING REQUESTS
+        ================================================== -->
+
+        <div class="dashboard-panel">
+
+
+            <div class="panel-header">
+
+                <div class="panel-title">
+
+                    <span class="panel-icon">
+                        🤝
+                    </span>
+
+                    <h2>
+                        Incoming Requests
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="view-all-button"
+                    onclick="openRequests()">
+
+                    View All →
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="incomingRequests"
+                class="recent-list">
+
+                <div class="loading-state">
+                    <div class="loading-spinner"></div>
+                    Loading requests...
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         IMPACT SECTION
+    ================================================== -->
+
+    <section
+        class="impact-banner"
+        id="impactBanner">
+
+        <div class="impact-content">
+
+            <div class="impact-heart">
+                ❤️
+            </div>
+
+            <div>
+
+                <h2>
+                    Make an Impact
+                </h2>
+
+                <p>
+                    Every rescued meal matters.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="impact-message">
+
+            <strong id="impactNumber">
+                0
+            </strong>
+
+            meals available to help the community
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     SUCCESS / INFO POPUP
+===================================================== -->
+
+<div
+    id="dashboardToast"
+    class="dashboard-toast">
+
+    <span id="toastIcon">
+        ✓
+    </span>
+
+    <span id="toastMessage">
+        Done
+    </span>
+
+</div>
+
+
+
+<script src="js/mess-dashboard.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1623 @@
+/* =========================================================
+   MEALBRIDGE - MESS DASHBOARD
+========================================================= */
+
+.mess-dashboard-page {
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fcfa 0%,
+            #f5faf7 100%
+        );
+
+    color: #123c2b;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.meal-nav {
+
+    height: 88px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5eee8;
+
+    box-shadow:
+        0 4px 18px rgba(24, 83, 52, 0.05);
+
+    box-sizing: border-box;
+
+}
+
+
+.meal-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 3px;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+}
+
+
+.logo-icon {
+
+    font-size: 27px;
+
+    margin-right: 10px;
+
+}
+
+
+.logo-main {
+
+    color: #173f2e;
+
+}
+
+
+.logo-green {
+
+    color: #32a267;
+
+}
+
+
+.meal-user-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+
+}
+
+
+.meal-user {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+}
+
+
+.user-role {
+
+    color: #e99722;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.meal-user strong {
+
+    color: #183e2e;
+
+    font-size: 14px;
+
+    margin-top: 2px;
+
+}
+
+
+.meal-logout-btn {
+
+    min-width: 120px;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #247548,
+            #399c67
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 24px rgba(36, 117, 72, 0.20);
+
+    transition: 0.25s ease;
+
+}
+
+
+.meal-logout-btn:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(36, 117, 72, 0.28);
+
+}
+
+
+.meal-logout-btn:active {
+
+    transform: translateY(0);
+
+}
+
+
+
+/* =========================================================
+   DASHBOARD CONTAINER
+========================================================= */
+
+.meal-dashboard {
+
+    width: 86%;
+
+    max-width: 1250px;
+
+    margin: 70px auto;
+
+}
+
+
+
+/* =========================================================
+   WELCOME BANNER
+========================================================= */
+
+.welcome-banner {
+
+    min-height: 208px;
+
+    padding: 40px 55px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #def6e8,
+            #fff3d9
+        );
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+.welcome-banner::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+
+    height: 230px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.28);
+
+    right: 80px;
+
+    top: -120px;
+
+}
+
+
+.welcome-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.welcome-label {
+
+    display: block;
+
+    color: #21935b;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.welcome-content h1 {
+
+    margin: 0;
+
+    color: #123d2d;
+
+    font-size: 40px;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+
+}
+
+
+.welcome-content p {
+
+    margin: 12px 0 0;
+
+    color: #59786a;
+
+    font-size: 16px;
+
+}
+
+
+.welcome-food-icon {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 78px;
+
+    width: 145px;
+
+    height: 145px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 38px;
+
+}
+
+
+.stat-card {
+
+    min-height: 235px;
+
+    position: relative;
+
+    box-sizing: border-box;
+
+    padding: 30px 35px;
+
+    background: #ffffff;
+
+    border: 1px solid #e1ebe5;
+
+    border-radius: 23px;
+
+    box-shadow:
+        0 8px 25px rgba(28, 80, 53, 0.04);
+
+}
+
+
+.stat-card-button {
+
+    width: 100%;
+
+    text-align: left;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+}
+
+
+.stat-card-button:hover {
+
+    transform: translateY(-6px);
+
+    border-color: #c8e0d2;
+
+    box-shadow:
+        0 18px 35px rgba(28, 80, 53, 0.10);
+
+}
+
+
+.stat-icon {
+
+    font-size: 38px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.stat-number {
+
+    font-size: 32px;
+
+    font-weight: 800;
+
+    color: #113c2c;
+
+}
+
+
+.stat-title {
+
+    margin-top: 10px;
+
+    color: #607c70;
+
+    font-size: 15px;
+
+}
+
+
+.stat-arrow {
+
+    position: absolute;
+
+    right: 27px;
+
+    bottom: 30px;
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #e5f7ec;
+
+    color: #259157;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+
+.request-arrow {
+
+    background: #fff2d5;
+
+    color: #e49a17;
+
+}
+
+
+.impact-arrow {
+
+    background: #ffe5e6;
+
+    color: #ef5360;
+
+}
+
+
+.impact-text {
+
+    color: #123d2d;
+
+}
+
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.dashboard-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 38px;
+
+}
+
+
+.post-food-button {
+
+    min-width: 265px;
+
+    height: 54px;
+
+    padding: 0 28px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #219258,
+            #2f9c65
+        );
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 24px rgba(34, 145, 87, 0.20);
+
+    transition: 0.25s ease;
+
+}
+
+
+.post-food-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 16px 30px rgba(34, 145, 87, 0.30);
+
+}
+
+
+.post-food-button span {
+
+    font-size: 22px;
+
+    margin-right: 7px;
+
+}
+
+
+.dashboard-secondary-button {
+
+    height: 54px;
+
+    min-width: 155px;
+
+    padding: 0 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    border: 1px solid #e2ddd4;
+
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    color: #173e2e;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+}
+
+
+.dashboard-secondary-button:hover {
+
+    transform: translateY(-3px);
+
+    border-color: #bdd7c8;
+
+    background: #f9fcfa;
+
+    box-shadow:
+        0 10px 22px rgba(30, 80, 50, 0.08);
+
+}
+
+
+
+/* =========================================================
+   CONTENT GRID
+========================================================= */
+
+.dashboard-content-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+
+    margin-top: 35px;
+
+}
+
+
+.dashboard-panel {
+
+    background: #ffffff;
+
+    border: 1px solid #e1ebe5;
+
+    border-radius: 22px;
+
+    padding: 24px;
+
+    min-height: 350px;
+
+    box-sizing: border-box;
+
+}
+
+
+.panel-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+
+}
+
+
+.panel-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.panel-icon {
+
+    font-size: 27px;
+
+}
+
+
+.panel-title h2 {
+
+    margin: 0;
+
+    font-size: 19px;
+
+    color: #153f2e;
+
+}
+
+
+.view-all-button {
+
+    border: none;
+
+    background: #eaf8ef;
+
+    color: #239059;
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+
+.view-all-button:hover {
+
+    background: #d9f2e2;
+
+    transform: translateX(2px);
+
+}
+
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.recent-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.recent-food-item {
+
+    min-height: 83px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 12px;
+
+    border: 1px solid #e8efea;
+
+    border-radius: 15px;
+
+    box-sizing: border-box;
+
+    transition: 0.2s ease;
+
+}
+
+
+.recent-food-item:hover {
+
+    background: #fbfefc;
+
+    border-color: #cfe3d7;
+
+}
+
+
+.food-mini-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf9f1,
+            #fff5dc
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 29px;
+
+}
+
+
+.recent-food-details {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.recent-food-details h3 {
+
+    margin: 0 0 5px;
+
+    color: #163f2e;
+
+    font-size: 14px;
+
+}
+
+
+.recent-food-details p {
+
+    margin: 0;
+
+    color: #6a8176;
+
+    font-size: 11px;
+
+}
+
+
+.recent-food-time {
+
+    margin-top: 6px !important;
+
+    color: #7d9187 !important;
+
+}
+
+
+.food-status {
+
+    flex-shrink: 0;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+
+.food-status.available {
+
+    background: #e2f7eb;
+
+    color: #258b56;
+
+}
+
+
+.food-status.partially_claimed {
+
+    background: #fff1d3;
+
+    color: #bd790e;
+
+}
+
+
+.food-status.claimed {
+
+    background: #e2f1ff;
+
+    color: #1675a9;
+
+}
+
+
+.food-status.expired {
+
+    background: #ffe8e7;
+
+    color: #bd4e47;
+
+}
+
+
+
+/* =========================================================
+   REQUEST ITEM
+========================================================= */
+
+.recent-request-item {
+
+    min-height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 11px;
+
+    border: 1px solid #e8efea;
+
+    border-radius: 15px;
+
+}
+
+
+.request-avatar {
+
+    width: 48px;
+
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #e5f2ff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+
+}
+
+
+.request-details {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.request-details h3 {
+
+    margin: 0 0 5px;
+
+    color: #183f30;
+
+    font-size: 13px;
+
+}
+
+
+.request-details p {
+
+    margin: 0;
+
+    color: #657c71;
+
+    font-size: 11px;
+
+}
+
+
+.request-buttons {
+
+    display: flex;
+
+    gap: 7px;
+
+}
+
+
+.accept-request-btn,
+.reject-request-btn {
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 9px 13px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+
+.accept-request-btn {
+
+    background: #219258;
+
+    color: white;
+
+}
+
+
+.accept-request-btn:hover {
+
+    background: #176e40;
+
+    transform: translateY(-2px);
+
+}
+
+
+.reject-request-btn {
+
+    background: #ffe5e4;
+
+    color: #bd5048;
+
+}
+
+
+.reject-request-btn:hover {
+
+    background: #ffd5d3;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* =========================================================
+   EMPTY / LOADING
+========================================================= */
+
+.loading-state,
+.empty-dashboard-state {
+
+    min-height: 230px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    color: #71867b;
+
+    font-size: 13px;
+
+    text-align: center;
+
+}
+
+
+.empty-dashboard-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.empty-dashboard-state button {
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #e7f7ed;
+
+    color: #247e4e;
+
+    padding: 9px 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.loading-spinner {
+
+    width: 25px;
+
+    height: 25px;
+
+    border: 3px solid #dcece2;
+
+    border-top-color: #29945b;
+
+    border-radius: 50%;
+
+    animation: dashboardSpin 0.8s linear infinite;
+
+    margin-bottom: 12px;
+
+}
+
+
+@keyframes dashboardSpin {
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+
+/* =========================================================
+   IMPACT
+========================================================= */
+
+.impact-banner {
+
+    min-height: 82px;
+
+    margin-top: 20px;
+
+    padding: 18px 28px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border: 1px solid #d6eade;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #e9faf0,
+            #f4fbf6
+        );
+
+}
+
+
+.impact-content {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.impact-heart {
+
+    font-size: 30px;
+
+}
+
+
+.impact-content h2 {
+
+    margin: 0;
+
+    color: #174431;
+
+    font-size: 16px;
+
+}
+
+
+.impact-content p {
+
+    margin: 4px 0 0;
+
+    color: #668174;
+
+    font-size: 11px;
+
+}
+
+
+.impact-message {
+
+    color: #668174;
+
+    font-size: 11px;
+
+}
+
+
+.impact-message strong {
+
+    color: #218951;
+
+    font-size: 22px;
+
+    margin-right: 5px;
+
+}
+
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.dashboard-toast {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 20px;
+
+    border-radius: 12px;
+
+    background: #173f2d;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.18);
+
+    transform: translateY(100px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 0.3s ease;
+
+}
+
+
+.dashboard-toast.show {
+
+    transform: translateY(0);
+
+    opacity: 1;
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .meal-dashboard {
+
+        width: 90%;
+
+        margin-top: 40px;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .dashboard-content-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .meal-nav {
+
+        height: auto;
+
+        min-height: 75px;
+
+        padding: 14px 20px;
+
+    }
+
+
+    .meal-logo {
+
+        font-size: 22px;
+
+    }
+
+
+    .logo-icon {
+
+        font-size: 22px;
+
+        margin-right: 5px;
+
+    }
+
+
+    .meal-user {
+
+        display: none;
+
+    }
+
+
+    .meal-user-area {
+
+        gap: 0;
+
+    }
+
+
+    .meal-logout-btn {
+
+        min-width: 90px;
+
+        height: 44px;
+
+    }
+
+
+    .meal-dashboard {
+
+        width: 92%;
+
+        margin: 25px auto;
+
+    }
+
+
+    .welcome-banner {
+
+        padding: 28px;
+
+        min-height: 180px;
+
+    }
+
+
+    .welcome-content h1 {
+
+        font-size: 29px;
+
+    }
+
+
+    .welcome-food-icon {
+
+        display: none;
+
+    }
+
+
+    .dashboard-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .post-food-button,
+    .dashboard-secondary-button {
+
+        width: 100%;
+
+    }
+
+
+    .dashboard-content-grid {
+
+        gap: 18px;
+
+    }
+
+
+    .dashboard-panel {
+
+        padding: 17px;
+
+    }
+
+
+    .panel-title h2 {
+
+        font-size: 16px;
+
+    }
+
+
+    .request-buttons {
+
+        flex-direction: column;
+
+    }
+
+
+    .impact-banner {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+
+    }
+
+}
+
+
+/* =========================================================
+MEALBRIDGE - CUSTOM CONFIRMATION MODAL
+========================================================= */
+
+.mb-modal-overlay {
+position: fixed;
+inset: 0;
+z-index: 100000;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 20px;
+background: rgba(15, 39, 27, 0.58);
+backdrop-filter: blur(5px);
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.mb-modal-overlay.mb-modal-open {
+opacity: 1;
+visibility: visible;
+}
+
+.mb-modal {
+width: 100%;
+max-width: 430px;
+padding: 30px;
+border: 1px solid #e1eee5;
+border-radius: 24px;
+background: linear-gradient(145deg, #ffffff, #f5fbf6);
+box-shadow: 0 25px 80px rgba(0, 0, 0, 0.23);
+transform: translateY(15px) scale(0.97);
+transition: transform 0.22s ease;
+font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.mb-modal-open .mb-modal {
+transform: translateY(0) scale(1);
+}
+
+.mb-modal-icon {
+width: 62px;
+height: 62px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 18px;
+border-radius: 19px;
+background: #e3f7e9;
+font-size: 30px;
+}
+
+.mb-modal h2 {
+margin: 0 0 10px;
+color: #173f2e;
+font-size: 24px;
+line-height: 1.3;
+}
+
+.mb-modal-description {
+margin: 0 0 24px;
+color: #687b6f;
+font-size: 14px;
+line-height: 1.7;
+overflow-wrap: anywhere;
+}
+
+.mb-modal-form {
+display: grid;
+gap: 15px;
+margin-bottom: 22px;
+}
+
+.mb-modal-form label {
+display: grid;
+gap: 7px;
+color: #315642;
+font-size: 13px;
+font-weight: 700;
+}
+
+.mb-modal-form input,
+.mb-modal-form textarea {
+width: 100%;
+padding: 12px 13px;
+border: 1px solid #d6e5da;
+border-radius: 11px;
+background: #fff;
+color: #173f2e;
+font: inherit;
+outline: none;
+}
+
+.mb-modal-form input,
+.mb-modal-form textarea {
+border-color: #31965e;
+box-shadow: 0 0 0 3px rgba(49, 150, 94, 0.12);
+}
+
+.mb-modal-form textarea {
+min-height: 90px;
+resize: vertical;
+}
+
+.mb-modal-error {
+color: #b42318;
+font-size: 13px;
+line-height: 1.5;
+}
+
+.mb-modal-actions {
+display: flex;
+justify-content: flex-end;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+.mb-modal-btn {
+min-height: 44px;
+padding: 11px 19px;
+border: 0;
+border-radius: 12px;
+font-size: 14px;
+font-weight: 800;
+cursor: pointer;
+transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.mb-modal-btn {
+transform: translateY(-2px);
+}
+
+.mb-modal-cancel {
+background: #edf2ee;
+color: #415b4b;
+}
+
+.mb-modal-primary {
+background: linear-gradient(135deg, #247548, #39a269);
+color: white;
+box-shadow: 0 6px 15px rgba(36, 117, 72, 0.18);
+}
+
+.mb-modal-danger {
+background: #c83f38;
+color: white;
+}
+
+.mb-modal-info {
+background: #e5f1ff;
+color: #245d98;
+}
+
+.mb-modal-btn {
+opacity: 0.6;
+cursor: wait;
+transform: none;
+}
+
+@media (max-width: 480px) {
+.mb-modal {
+padding: 23px;
+border-radius: 20px;
+}
+
+.mb-modal h2 {
+    font-size: 21px;
+}
+
+.mb-modal-actions {
+    flex-direction: column-reverse;
+}
+
+.mb-modal-btn {
+    width: 100%;
+}
+
+}

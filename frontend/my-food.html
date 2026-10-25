@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Food | MealBridge</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/food.css">
+
+</head>
+
+
+<body class="food-page">
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<header class="dashboard-nav">
+
+    <div class="logo">
+
+        🍱 Meal<span class="logo-highlight">
+            Bridge
+        </span>
+
+    </div>
+
+
+    <div class="user-area">
+
+        <div class="nav-user">
+
+            <span class="nav-role">
+                MESS STAFF
+            </span>
+
+            <strong id="navUserName">
+                Mess Staff
+            </strong>
+
+        </div>
+
+
+        <button
+            class="logout-btn"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="dashboard">
+
+
+    <!-- =====================================
+         BACK BUTTON
+    ====================================== -->
+
+    <button
+        class="back-dashboard-btn"
+        onclick="window.location.href='mess-dashboard.html'">
+
+        ← Back to Dashboard
+
+    </button>
+
+
+
+    <!-- =====================================
+         PAGE HEADER
+    ====================================== -->
+
+    <section class="food-page-header">
+
+        <div class="header-content">
+
+            <span class="header-label">
+                MEALBRIDGE • FOOD MANAGEMENT
+            </span>
+
+            <h1>
+                My Food Donations 🍱
+            </h1>
+
+            <p>
+                Track the surplus food you have shared
+                and see its current rescue status.
+            </p>
+
+        </div>
+
+
+        <div class="header-illustration">
+
+            🍱
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         STATISTICS
+    ====================================== -->
+
+    <section class="food-stats">
+
+
+        <div class="food-stat-card">
+
+            <div class="stat-icon">
+                🍱
+            </div>
+
+            <div>
+
+                <span class="stat-number"
+                      id="totalFood">
+                    0
+                </span>
+
+                <span class="stat-label">
+                    Total Donations
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="food-stat-card">
+
+            <div class="stat-icon green">
+                🟢
+            </div>
+
+            <div>
+
+                <span class="stat-number"
+                      id="availableFood">
+                    0
+                </span>
+
+                <span class="stat-label">
+                    Available
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="food-stat-card">
+
+            <div class="stat-icon orange">
+                🤝
+            </div>
+
+            <div>
+
+                <span class="stat-number"
+                      id="claimedFood">
+                    0
+                </span>
+
+                <span class="stat-label">
+                    Claimed
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="food-stat-card">
+
+            <div class="stat-icon red">
+                ⏰
+            </div>
+
+            <div>
+
+                <span class="stat-number"
+                      id="expiredFood">
+                    0
+                </span>
+
+                <span class="stat-label">
+                    Expired
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         ACTION AREA
+    ====================================== -->
+
+    <section class="food-toolbar">
+
+        <div>
+
+            <h2>
+                Your Donations
+            </h2>
+
+            <p>
+                Food you have posted for NGOs to collect.
+            </p>
+
+        </div>
+
+
+        <button
+            class="add-food-btn"
+            onclick="window.location.href='post-food.html'">
+
+            + Post Surplus Food
+
+        </button>
+
+    </section>
+
+
+
+    <!-- =====================================
+         LOADING
+    ====================================== -->
+
+    <div id="foodLoading"
+         class="food-loading">
+
+        <div class="loading-spinner"></div>
+
+        <p>
+            Loading your food donations...
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================
+         MESSAGE
+    ====================================== -->
+
+    <div id="foodMessage"
+         class="message">
+    </div>
+
+
+
+    <!-- =====================================
+         FOOD GRID
+    ====================================== -->
+
+    <section
+        id="foodGrid"
+        class="my-food-grid">
+
+    </section>
+
+
+
+    <!-- =====================================
+         EMPTY STATE
+    ====================================== -->
+
+    <section
+        id="emptyFood"
+        class="food-empty"
+        style="display:none;">
+
+        <div class="empty-food-icon">
+            🍱
+        </div>
+
+        <h2>
+            No Food Donations Yet
+        </h2>
+
+        <p>
+            You haven't posted any surplus food.
+            Start your first donation and help someone today!
+        </p>
+
+        <button
+            class="empty-post-btn"
+            onclick="window.location.href='post-food.html'">
+
+            🍱 Post Your First Donation
+
+        </button>
+
+    </section>
+
+
+</main>
+
+
+
+<script src="js/my-food.js"></script>
+
+
+</body>
+
+</html>

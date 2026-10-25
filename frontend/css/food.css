@@ -1,0 +1,2477 @@
+/* ========================================
+   MEALBRIDGE - FOOD PAGE
+======================================== */
+
+.food-page {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #e4f8eb,
+            transparent 30%
+        ),
+        #f7faf8;
+
+}
+
+
+/* ========================================
+   DASHBOARD NAVIGATION
+======================================== */
+
+.dashboard-nav {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 45px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-bottom: 1px solid #e5eee8;
+
+    box-shadow:
+        0 4px 18px rgba(30, 80, 50, 0.06);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+}
+
+
+/* ========================================
+   MEALBRIDGE LOGO
+======================================== */
+
+.dashboard-nav .logo {
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    color: #1e5638;
+
+    letter-spacing: -0.5px;
+
+}
+
+.logo-highlight {
+
+    color: #42a86c;
+
+}
+
+
+/* ========================================
+   USER AREA
+======================================== */
+
+.user-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+.user-area strong {
+
+    color: #30463b;
+
+    font-size: 13px;
+
+}
+
+
+/* ========================================
+   ATTRACTIVE LOGOUT BUTTON
+======================================== */
+
+.logout-btn {
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 95px;
+
+    height: 42px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #236b45,
+        #3e9b65
+    );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px rgba(35, 107, 69, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+.logout-btn:hover {
+
+    transform: translateY(-2px);
+
+    background: linear-gradient(
+        135deg,
+        #195c39,
+        #2f8755
+    );
+
+    box-shadow:
+        0 9px 20px rgba(35, 107, 69, 0.28);
+
+}
+
+.logout-btn:active {
+
+    transform: translateY(0);
+
+}
+
+
+/* ========================================
+   PAGE HEADER
+======================================== */
+
+.food-header {
+
+    background: linear-gradient(
+        120deg,
+        #236b45,
+        #45a96e
+    );
+
+    color: white;
+
+    border-radius: 25px;
+
+    padding: 35px 40px;
+
+    margin-bottom: 30px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 35px rgba(35, 107, 69, 0.15);
+
+}
+
+
+.food-header::after {
+
+    content: "🍱";
+
+    position: absolute;
+
+    right: 45px;
+
+    top: 20px;
+
+    font-size: 90px;
+
+    opacity: 0.18;
+
+}
+
+
+.food-header small {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+
+    opacity: 0.8;
+
+}
+
+
+.food-header h1 {
+
+    font-size: 32px;
+
+    margin-top: 8px;
+
+}
+
+
+.food-header p {
+
+    margin-top: 6px;
+
+    font-size: 13px;
+
+    opacity: 0.85;
+
+}
+
+
+/* ========================================
+   FORM CARD
+======================================== */
+
+.food-form-card {
+
+    background: white;
+
+    padding: 32px;
+
+    border-radius: 22px;
+
+    border: 1px solid #e7eee9;
+
+    box-shadow:
+        0 12px 35px rgba(
+            30,
+            80,
+            50,
+            0.06
+        );
+
+}
+
+
+/* ========================================
+   FORM GRID
+======================================== */
+
+.food-form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.food-form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.food-form-group.full {
+
+    grid-column: span 2;
+
+}
+
+
+/* ========================================
+   LABELS
+======================================== */
+
+.food-form-group label {
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #30463b;
+
+    margin-bottom: 7px;
+
+}
+
+
+/* ========================================
+   INPUTS
+======================================== */
+
+.food-form-group input,
+.food-form-group select,
+.food-form-group textarea {
+
+    padding: 13px;
+
+    border: 1px solid #dfe9e2;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    background: #fbfdfc;
+
+    transition:
+        border 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+/* ========================================
+   INPUT FOCUS
+======================================== */
+
+.food-form-group input:focus,
+.food-form-group select:focus,
+.food-form-group textarea:focus {
+
+    border-color: #46a16a;
+
+    box-shadow:
+        0 0 0 3px #e6f6eb;
+
+    background: white;
+
+}
+
+
+.food-form-group textarea {
+
+    min-height: 100px;
+
+    resize: vertical;
+
+}
+
+
+/* ========================================
+   DATETIME INPUT
+======================================== */
+
+.food-form-group input[type="datetime-local"] {
+
+    width: 100%;
+
+    min-height: 46px;
+
+    box-sizing: border-box;
+
+    color: #40564b;
+
+    cursor: pointer;
+
+}
+
+
+/* Improve calendar/time controls */
+
+.food-form-group input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+
+    cursor: pointer;
+
+    opacity: 0.75;
+
+    padding: 5px;
+
+}
+
+
+/* ========================================
+   TIME FIELD WRAPPER
+   Supports AM/PM selector if added
+======================================== */
+
+.time-input-row {
+
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 8px;
+
+    width: 100%;
+
+}
+
+
+.time-input-row input[type="datetime-local"] {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.time-input-row select {
+
+    width: 82px;
+
+    min-width: 82px;
+
+    padding: 0 12px;
+
+    border: 1px solid #dfe9e2;
+
+    border-radius: 10px;
+
+    background: #fbfdfc;
+
+    color: #30463b;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    outline: none;
+
+}
+
+
+.time-input-row select:focus {
+
+    border-color: #46a16a;
+
+    box-shadow:
+        0 0 0 3px #e6f6eb;
+
+}
+
+
+/* ========================================
+   AM / PM SELECT
+======================================== */
+
+.ampm-select {
+
+    width: 82px !important;
+
+    min-width: 82px !important;
+
+    height: 46px;
+
+    text-align: center;
+
+    font-weight: 700 !important;
+
+    color: #236b45 !important;
+
+    background: #f1faf4 !important;
+
+    border: 1px solid #cfe5d6 !important;
+
+}
+
+
+.ampm-select:hover {
+
+    background: #e7f6ec !important;
+
+}
+
+
+/* ========================================
+   TIME HELP TEXT
+======================================== */
+
+.time-help {
+
+    margin-top: 6px;
+
+    font-size: 10px;
+
+    color: #718078;
+
+}
+
+
+/* ========================================
+   FORM MESSAGE
+======================================== */
+
+.message {
+
+    padding: 12px 15px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    min-height: 18px;
+
+}
+
+
+.message:empty {
+
+    padding: 0;
+
+    min-height: 0;
+
+}
+
+
+.message.success {
+
+    background: #e7f8ed;
+
+    color: #217344;
+
+    border: 1px solid #bde8ca;
+
+}
+
+
+.message.error {
+
+    background: #fff0ef;
+
+    color: #b7443d;
+
+    border: 1px solid #f3c5c1;
+
+}
+
+
+/* ========================================
+   FORM ACTION BUTTON AREA
+======================================== */
+
+.food-form-actions {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e5eee8;
+
+}
+
+
+/* ========================================
+   CANCEL BUTTON
+======================================== */
+
+.cancel-food-btn {
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 150px;
+
+    height: 52px;
+
+    padding: 0 24px;
+
+    border: 2px solid #dce8e1;
+
+    border-radius: 14px;
+
+    background: #f7faf8;
+
+    color: #315344;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 5px 15px rgba(
+            30,
+            80,
+            50,
+            0.06
+        );
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.cancel-food-btn:hover {
+
+    background: #edf6f0;
+
+    border-color: #b9d8c4;
+
+    color: #236b45;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 22px rgba(
+            30,
+            80,
+            50,
+            0.10
+        );
+
+}
+
+
+.cancel-food-btn:active {
+
+    transform: translateY(0);
+
+    box-shadow:
+        0 4px 10px rgba(
+            30,
+            80,
+            50,
+            0.06
+        );
+
+}
+
+
+/* ========================================
+   PUBLISH FOOD BUTTON
+======================================== */
+
+.publish-food-btn {
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 250px;
+
+    height: 54px;
+
+    padding: 0 30px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #236b45,
+        #3fa467
+    );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 22px rgba(
+            35,
+            107,
+            69,
+            0.25
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.publish-food-btn:hover {
+
+    background: linear-gradient(
+        135deg,
+        #1b5b39,
+        #318b56
+    );
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(
+            35,
+            107,
+            69,
+            0.32
+        );
+
+}
+
+
+.publish-food-btn:active {
+
+    transform: translateY(0);
+
+    box-shadow:
+        0 6px 15px rgba(
+            35,
+            107,
+            69,
+            0.20
+        );
+
+}
+
+
+.publish-food-btn:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+
+}
+
+
+/* ========================================
+   FOOD CARDS
+======================================== */
+
+.food-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.food-card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    border: 1px solid #e7eee9;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+
+}
+
+
+.food-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 40px rgba(
+            30,
+            80,
+            50,
+            0.1
+        );
+
+}
+
+
+.food-card-top {
+
+    padding: 23px;
+
+    background: linear-gradient(
+        135deg,
+        #edfaf1,
+        #fff8e6
+    );
+
+}
+
+
+.food-category {
+
+    display: inline-block;
+
+    background: white;
+
+    color: #39855a;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+}
+
+
+.food-card h3 {
+
+    font-size: 18px;
+
+    margin-top: 13px;
+
+}
+
+
+.food-card-body {
+
+    padding: 20px;
+
+}
+
+
+.food-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 11px;
+
+    font-size: 11px;
+
+    color: #62736a;
+
+}
+
+
+.food-info span:first-child {
+
+    font-size: 17px;
+
+}
+
+
+.food-expiry {
+
+    margin-top: 15px;
+
+    padding: 10px;
+
+    border-radius: 9px;
+
+    background: #fff5df;
+
+    color: #9b6b10;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+}
+
+
+.food-card-button {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2e8b57;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-weight: 600;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+}
+
+
+.food-card-button:hover {
+
+    background: #17663c;
+
+}
+
+
+/* ========================================
+   STATUS
+======================================== */
+
+.status {
+
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+}
+
+
+.status.available {
+
+    background: #e5f7eb;
+
+    color: #2e8652;
+
+}
+
+
+.status.pending {
+
+    background: #fff4d9;
+
+    color: #a86d00;
+
+}
+
+
+.status.accepted {
+
+    background: #e1f4ff;
+
+    color: #1672a4;
+
+}
+
+
+.status.rejected {
+
+    background: #ffe9e7;
+
+    color: #bd4b42;
+
+}
+
+
+.status.completed {
+
+    background: #e7e9ff;
+
+    color: #535db1;
+
+}
+
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.empty-state {
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px dashed #cfded5;
+
+    border-radius: 20px;
+
+    padding: 55px 20px;
+
+}
+
+
+.empty-state .empty-icon {
+
+    font-size: 50px;
+
+}
+
+
+.empty-state h3 {
+
+    margin-top: 12px;
+
+}
+
+
+.empty-state p {
+
+    color: #728078;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+}
+
+
+/* ========================================
+   REQUEST CARD
+======================================== */
+
+.request-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    border: 1px solid #e5ece7;
+
+    padding: 22px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.request-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+}
+
+
+.request-card h3 {
+
+    font-size: 16px;
+
+}
+
+
+.request-meta {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+
+    margin-top: 15px;
+
+}
+
+
+.request-meta div {
+
+    background: #f6faf7;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    color: #65756d;
+
+}
+
+
+.request-actions {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 15px;
+
+}
+
+
+.request-actions button {
+
+    border: none;
+
+    padding: 9px 15px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+}
+
+
+.accept-btn {
+
+    background: #e2f5e8;
+
+    color: #267547;
+
+}
+
+
+.reject-btn {
+
+    background: #ffe9e6;
+
+    color: #bd4d43;
+
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .food-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .dashboard-nav {
+
+        padding: 15px 20px;
+
+    }
+
+
+    .user-area {
+
+        gap: 10px;
+
+    }
+
+
+    .user-area strong {
+
+        display: none;
+
+    }
+
+
+    .food-form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .food-form-group.full {
+
+        grid-column: span 1;
+
+    }
+
+
+    .food-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .food-form-card {
+
+        padding: 20px;
+
+    }
+
+
+    .food-header {
+
+        padding: 28px 24px;
+
+    }
+
+
+    .food-header h1 {
+
+        font-size: 25px;
+
+    }
+
+
+    /* MOBILE ACTION BUTTONS */
+
+    .food-form-actions {
+
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+
+        gap: 12px;
+
+    }
+
+
+    .cancel-food-btn,
+    .publish-food-btn {
+
+        width: 100%;
+
+        min-width: 0;
+
+    }
+
+
+    /* MOBILE TIME */
+
+    .time-input-row {
+
+        flex-direction: row;
+
+    }
+
+
+    .time-input-row select,
+    .ampm-select {
+
+        width: 75px !important;
+
+        min-width: 75px !important;
+
+    }
+
+}
+
+
+/* ========================================
+   FINAL BUTTON SAFETY OVERRIDE
+======================================== */
+
+/*
+   These rules make sure browser default
+   button styling does not come back.
+*/
+
+.food-form-actions button {
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+}
+
+
+.food-form-actions .cancel-food-btn {
+
+    background: #f7faf8;
+
+    color: #315344;
+
+}
+
+
+.food-form-actions .publish-food-btn {
+
+    background: linear-gradient(
+        135deg,
+        #236b45,
+        #3fa467
+    );
+
+    color: white;
+
+}
+
+
+/* ========================================
+   FINAL LOGOUT SAFETY OVERRIDE
+======================================== */
+
+.dashboard-nav .logout-btn {
+
+    border: none;
+
+    outline: none;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+}
+
+
+/* ========================================
+   TIME INPUT RESPONSIVE SAFETY
+======================================== */
+
+@media (max-width: 480px) {
+
+    .time-input-row {
+
+        gap: 6px;
+
+    }
+
+
+    .time-input-row select,
+    .ampm-select {
+
+        width: 70px !important;
+
+        min-width: 70px !important;
+
+        padding-left: 6px;
+
+        padding-right: 6px;
+
+    }
+
+}
+/* =========================================================
+   MEALBRIDGE - MY FOOD PAGE
+   ========================================================= */
+
+
+/* ========================================
+   BACK TO DASHBOARD
+======================================== */
+
+.back-dashboard-btn {
+
+    margin-bottom: 25px;
+
+    padding: 12px 20px;
+
+    border: 1px solid #dce8e1;
+
+    border-radius: 12px;
+
+    background: white;
+
+    color: #236b45;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    box-shadow:
+        0 5px 15px rgba(30, 80, 50, 0.05);
+
+}
+
+
+.back-dashboard-btn:hover {
+
+    transform: translateX(-3px);
+
+    background: #edf8f1;
+
+    border-color: #b8d8c4;
+
+    box-shadow:
+        0 8px 20px rgba(30, 80, 50, 0.09);
+
+}
+
+
+
+/* ========================================
+   NAV USER
+======================================== */
+
+.nav-user {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    line-height: 1.1;
+
+}
+
+
+.nav-role {
+
+    color: #e28a25;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 3px;
+
+}
+
+
+.nav-user strong {
+
+    color: #183d2b;
+
+    font-size: 13px;
+
+}
+
+
+
+/* ========================================
+   PAGE HEADER
+======================================== */
+
+.food-page-header {
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    min-height: 190px;
+
+    padding: 38px 55px;
+
+    margin-bottom: 25px;
+
+    border-radius: 28px;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            #e3f8ea,
+            #fff5dc
+        );
+
+    border: 1px solid #e4eee7;
+
+    box-shadow:
+        0 15px 35px rgba(30, 80, 50, 0.06);
+
+}
+
+
+.food-page-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+
+    height: 250px;
+
+    right: -80px;
+
+    top: -110px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.35);
+
+}
+
+
+.header-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.header-label {
+
+    display: inline-block;
+
+    color: #238151;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.food-page-header h1 {
+
+    margin: 0;
+
+    color: #103a2a;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+}
+
+
+.food-page-header p {
+
+    margin-top: 9px;
+
+    color: #60766b;
+
+    font-size: 14px;
+
+}
+
+
+.header-illustration {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.45);
+
+    font-size: 65px;
+
+    box-shadow:
+        0 12px 25px rgba(30,80,50,0.08);
+
+}
+
+
+
+/* ========================================
+   STATISTICS
+======================================== */
+
+.food-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.food-stat-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 20px;
+
+    background: white;
+
+    border: 1px solid #e4ece7;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 22px rgba(30,80,50,0.045);
+
+    transition: all 0.25s ease;
+
+}
+
+
+.food-stat-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 30px rgba(30,80,50,0.09);
+
+}
+
+
+.stat-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 15px;
+
+    background: #eef9f1;
+
+    font-size: 24px;
+
+}
+
+
+.stat-icon.green {
+
+    background: #e5f8eb;
+
+}
+
+
+.stat-icon.orange {
+
+    background: #fff3dd;
+
+}
+
+
+.stat-icon.red {
+
+    background: #ffeded;
+
+}
+
+
+.stat-number {
+
+    display: block;
+
+    color: #123b2a;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+}
+
+
+.stat-label {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: #718078;
+
+    font-size: 11px;
+
+}
+
+
+
+/* ========================================
+   TOOLBAR
+======================================== */
+
+.food-toolbar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+
+}
+
+
+.food-toolbar h2 {
+
+    margin: 0;
+
+    color: #103a2a;
+
+    font-size: 23px;
+
+}
+
+
+.food-toolbar p {
+
+    margin-top: 5px;
+
+    color: #718078;
+
+    font-size: 12px;
+
+}
+
+
+.add-food-btn {
+
+    padding: 13px 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #236b45,
+            #3f9e65
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(35,107,69,0.22);
+
+    transition: all 0.2s ease;
+
+}
+
+
+.add-food-btn:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(35,107,69,0.3);
+
+}
+
+
+
+/* ========================================
+   FOOD GRID
+======================================== */
+
+.my-food-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+
+}
+
+
+
+/* ========================================
+   DONATION CARD
+======================================== */
+
+.my-food-card {
+
+    overflow: hidden;
+
+    background: white;
+
+    border: 1px solid #e3ebe6;
+
+    border-radius: 21px;
+
+    box-shadow:
+        0 8px 25px rgba(30,80,50,0.055);
+
+    transition: all 0.25s ease;
+
+}
+
+
+.my-food-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 38px rgba(30,80,50,0.12);
+
+}
+
+
+
+/* ========================================
+   CARD TOP
+======================================== */
+
+.my-food-card-top {
+
+    position: relative;
+
+    padding: 23px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ecfaf0,
+            #fff8e5
+        );
+
+}
+
+
+.food-card-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: white;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 7px 15px rgba(30,80,50,0.07);
+
+}
+
+
+.food-card-category {
+
+    display: inline-block;
+
+    margin-top: 14px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    color: #328356;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+}
+
+
+.my-food-card-top h3 {
+
+    margin-top: 10px;
+
+    color: #153e2c;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+}
+
+
+.food-status {
+
+    position: absolute;
+
+    right: 18px;
+
+    top: 18px;
+
+}
+
+
+
+/* ========================================
+   STATUS BADGES
+======================================== */
+
+.food-status span {
+
+    display: inline-block;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+}
+
+
+.status-available {
+
+    background: #e2f7e9;
+
+    color: #267849;
+
+}
+
+
+.status-partially {
+
+    background: #fff2d5;
+
+    color: #a46c05;
+
+}
+
+
+.status-claimed {
+
+    background: #e3f2ff;
+
+    color: #2371a3;
+
+}
+
+
+.status-expired {
+
+    background: #ffe9e7;
+
+    color: #b74b43;
+
+}
+
+
+
+/* ========================================
+   CARD BODY
+======================================== */
+
+.my-food-card-body {
+
+    padding: 20px;
+
+}
+
+
+.food-detail {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+
+    color: #64756d;
+
+    font-size: 11px;
+
+}
+
+
+.food-detail-icon {
+
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #f3f8f5;
+
+    font-size: 14px;
+
+}
+
+
+.food-detail strong {
+
+    display: block;
+
+    color: #29483a;
+
+    font-size: 11px;
+
+    margin-bottom: 2px;
+
+}
+
+
+
+/* ========================================
+   EXPIRY
+======================================== */
+
+.food-expiry-box {
+
+    margin-top: 16px;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    background: #fff7e6;
+
+    border: 1px solid #f5e5c3;
+
+}
+
+
+.food-expiry-title {
+
+    color: #9b711d;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+}
+
+
+.food-expiry-time {
+
+    margin-top: 4px;
+
+    color: #856116;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.food-description {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 11px;
+
+    background: #f7faf8;
+
+    color: #697a71;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+}
+
+
+
+/* ========================================
+   CARD FOOTER
+======================================== */
+
+.my-food-card-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 20px;
+
+    border-top: 1px solid #edf2ee;
+
+}
+
+
+.posted-date {
+
+    color: #89958f;
+
+    font-size: 9px;
+
+}
+
+
+.view-request-btn {
+
+    padding: 8px 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #eef8f1;
+
+    color: #28784a;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.view-request-btn:hover {
+
+    background: #dff1e5;
+
+}
+
+
+
+/* ========================================
+   LOADING
+======================================== */
+
+.food-loading {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 60px;
+
+    color: #708078;
+
+}
+
+
+.loading-spinner {
+
+    width: 35px;
+
+    height: 35px;
+
+    border: 4px solid #e3eee7;
+
+    border-top-color: #2e8b57;
+
+    border-radius: 50%;
+
+    animation: foodSpin 0.8s linear infinite;
+
+}
+
+
+.food-loading p {
+
+    margin-top: 12px;
+
+    font-size: 12px;
+
+}
+
+
+@keyframes foodSpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.food-empty {
+
+    padding: 65px 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px dashed #cdded3;
+
+    border-radius: 22px;
+
+}
+
+
+.empty-food-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.food-empty h2 {
+
+    color: #173d2d;
+
+    font-size: 22px;
+
+}
+
+
+.food-empty p {
+
+    max-width: 500px;
+
+    margin: 8px auto 22px;
+
+    color: #75827c;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+.empty-post-btn {
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #2e8b57;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+}
+
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .food-stats {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .my-food-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .food-page-header {
+
+        padding: 28px;
+
+    }
+
+    .food-page-header h1 {
+
+        font-size: 26px;
+
+    }
+
+    .header-illustration {
+
+        width: 80px;
+
+        height: 80px;
+
+        font-size: 42px;
+
+    }
+
+    .my-food-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .food-toolbar {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+    .add-food-btn {
+
+        width: 100%;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .food-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .food-page-header {
+
+        min-height: auto;
+
+    }
+
+    .header-illustration {
+
+        display: none;
+
+    }
+
+    .user-area {
+
+        gap: 8px;
+
+    }
+
+}

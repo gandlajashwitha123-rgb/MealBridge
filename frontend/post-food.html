@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Post Food | MealBridge</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/food.css">
+
+</head>
+
+
+<body class="food-page">
+
+
+<header class="dashboard-nav">
+
+    <div class="logo">
+
+        🍱 Meal<span class="logo-highlight">
+            Bridge
+        </span>
+
+    </div>
+
+
+    <div class="user-area">
+
+        <strong id="navUserName">
+            Mess Staff
+        </strong>
+
+        <button
+            class="logout-btn"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+
+    <div class="food-header">
+
+        <small>FOOD RESCUE</small>
+
+        <h1>Post Surplus Food 🍱</h1>
+
+        <p>
+
+            Give your extra food another chance
+            to become someone's meal.
+
+        </p>
+
+    </div>
+
+
+    <div class="food-form-card">
+
+
+        <form id="foodForm">
+
+
+            <div class="food-form-grid">
+
+
+                <div class="food-form-group">
+
+                    <label>
+                        FOOD NAME *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="foodName"
+                        placeholder="Example: Vegetable Rice"
+                        required>
+
+                </div>
+
+
+                <div class="food-form-group">
+
+                    <label>
+                        CATEGORY *
+                    </label>
+
+                    <select id="category"
+                            required>
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option>
+                            Rice & Meals
+                        </option>
+
+                        <option>
+                            Bread & Chapati
+                        </option>
+
+                        <option>
+                            Curries
+                        </option>
+
+                        <option>
+                            Snacks
+                        </option>
+
+                        <option>
+                            Fruits
+                        </option>
+
+                        <option>
+                            Bakery
+                        </option>
+
+                        <option>
+                            Beverages
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="food-form-group">
+
+                    <label>
+                        QUANTITY *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        min="1"
+                        placeholder="50"
+                        required>
+
+                </div>
+
+
+                <div class="food-form-group">
+
+                    <label>
+                        UNIT *
+                    </label>
+
+                    <select id="unit"
+                            required>
+
+                        <option value="">
+                            Select unit
+                        </option>
+
+                        <option>
+                            Meals
+                        </option>
+
+                        <option>
+                            Kg
+                        </option>
+
+                        <option>
+                            Packets
+                        </option>
+
+                        <option>
+                            Boxes
+                        </option>
+
+                        <option>
+                            Litres
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =====================================
+                     PREPARED TIME
+                ====================================== -->
+
+                <div class="food-form-group">
+
+                     <label>
+                        PREPARED TIME *
+                    </label>
+
+                    <div class="time-input-row">
+
+                        <input
+                            type="datetime-local"
+                            id="preparedAt"
+                            required>
+
+                        <select id="preparedPeriod" class="ampm-select">
+
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+
+                        </select>
+
+                    </div>
+
+                 </div>
+
+
+                <!-- =====================================
+                     EXPIRY TIME
+                ====================================== -->
+
+                <div class="food-form-group">
+
+                    <label>
+                        EXPIRY TIME *
+                    </label>
+
+                    <div class="time-input-row">
+
+                        <input
+                        type="datetime-local"
+                        id="expiryTime"
+                        required>
+
+                    <select id="expiryPeriod" class="ampm-select">
+
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+                <div class="food-form-group full">
+
+                    <label>
+                        PICKUP LOCATION *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pickupLocation"
+                        placeholder="Example: Block A Hostel Mess"
+                        required>
+
+                </div>
+
+
+                <div class="food-form-group">
+
+                    <label>
+                        CONTACT NUMBER *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="contactNumber"
+                        placeholder="9876543210"
+                        maxlength="10"
+                        required>
+
+                </div>
+
+
+                <div class="food-form-group">
+
+                    <label>
+                        DESCRIPTION
+                    </label>
+
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="Freshly prepared vegetarian meal">
+
+                </div>
+
+
+            </div>
+
+
+            <div id="foodMessage"
+                 class="message"
+                 style="margin-top:20px;">
+            </div>
+
+
+            <!-- ========================================
+                 ACTION BUTTONS
+            ========================================= -->
+
+            <div class="food-form-actions">
+
+                <button
+                    type="button"
+                    class="cancel-food-btn"
+                    onclick="window.location.href='mess-dashboard.html'">
+
+                    ← Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="publish-food-btn">
+
+                    🍱 Publish Food Donation
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+</main>
+
+
+<script src="js/food.js"></script>
+
+</body>
+
+</html>

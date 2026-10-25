@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MealBridge | My Requests</title>
+  <link rel="stylesheet" href="css/ngo.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="ngo-dashboard.html">🍱 MealBridge</a>
+
+    <nav>
+      <a href="ngo-dashboard.html">Dashboard</a>
+      <a href="available-food.html">Available Food</a>
+      <a class="active" href="my-requests.html">My Requests</a>
+
+      <button type="button" class="logout" id="logoutBtn">
+        Logout
+      </button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR FOOD RESCUE ACTIVITY</p>
+        <h1>My Requests 📋</h1>
+        <p>Track your food requests and pickup arrangements.</p>
+      </div>
+
+      <div class="welcome-icon">🤝</div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <h2>Request history</h2>
+        <p>Pending, accepted, rejected and completed requests.</p>
+      </div>
+
+      <button type="button" class="primary-btn" id="refreshBtn">
+        ↻ Refresh
+      </button>
+    </section>
+
+    <div id="message" class="message" hidden></div>
+
+    <section id="requestList" class="request-list">
+      <p>Loading requests...</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 MealBridge · Every rescued meal matters 💚
+  </footer>
+
+  <script>
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      sessionStorage.clear();
+
+      window.location.assign("login.html");
+    });
+  </script>
+
+  <script src="js/my-requests.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MealBridge | Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">🍱</div>
+        <div>
+          <h2>MealBridge</h2>
+          <small>Admin Console</small>
+        </div>
+      </div>
+
+      <div class="admin-profile">
+        <div class="avatar">A</div>
+        <div>
+          <strong id="adminName">Administrator</strong>
+          <small>Platform Admin</small>
+        </div>
+      </div>
+
+      <nav class="navigation">
+        <button class="nav-item active" data-section="overview">📊 Overview</button>
+        <button class="nav-item" data-section="users">👥 Users</button>
+        <button class="nav-item" data-section="ngos">🤝 NGO Verification</button>
+        <button class="nav-item" data-section="foods">🍲 Food Listings</button>
+        <button class="nav-item" data-section="requests">📦 Donation Requests</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-note">
+          <span>🌱</span>
+          <p>Less waste, more hope.</p>
+        </div>
+        <button id="logoutBtn" class="logout-button">↪ Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">MEALBRIDGE MANAGEMENT</p>
+          <h1 id="pageTitle">Platform Overview</h1>
+          <p class="subtitle">Monitor food rescue activity and manage the platform.</p>
+        </div>
+        <button id="refreshBtn" class="primary-button">↻ Refresh Data</button>
+      </header>
+
+      <div id="notice" class="notice" role="status" hidden></div>
+
+      <section id="overviewSection" class="content-section">
+        <div class="welcome-card">
+          <div>
+            <span class="welcome-label">ADMIN DASHBOARD</span>
+            <h2>Making every meal count 💚</h2>
+            <p>Track rescued food, support NGOs, and keep donations moving.</p>
+          </div>
+          <div class="welcome-illustration">🥗</div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card purple">
+            <div class="stat-top"><span>Total Users</span><span class="stat-icon">👥</span></div>
+            <strong id="totalUsers">—</strong><small>Registered accounts</small>
+          </article>
+          <article class="stat-card blue">
+            <div class="stat-top"><span>Mess Partners</span><span class="stat-icon">🏫</span></div>
+            <strong id="totalMess">—</strong><small>Food providers</small>
+          </article>
+          <article class="stat-card green">
+            <div class="stat-top"><span>NGO Partners</span><span class="stat-icon">🤝</span></div>
+            <strong id="totalNGOs">—</strong><small>Rescue organisations</small>
+          </article>
+          <article class="stat-card orange">
+            <div class="stat-top"><span>Food Listings</span><span class="stat-icon">🍲</span></div>
+            <strong id="totalFoodListings">—</strong><small>All recorded listings</small>
+          </article>
+          <article class="stat-card teal">
+            <div class="stat-top"><span>Active Listings</span><span class="stat-icon">✨</span></div>
+            <strong id="activeFoodListings">—</strong><small>Available and unexpired</small>
+          </article>
+          <article class="stat-card pink">
+            <div class="stat-top"><span>Completed Donations</span><span class="stat-icon">💚</span></div>
+            <strong id="completedDonations">—</strong><small>Listings with completed requests</small>
+          </article>
+          <article class="stat-card red">
+            <div class="stat-top"><span>Rejected Requests</span><span class="stat-icon">↩️</span></div>
+            <strong id="rejectedRequests">—</strong><small>Requests marked rejected</small>
+          </article>
+          <article class="stat-card yellow">
+            <div class="stat-top"><span>Food Rescued</span><span class="stat-icon">🌍</span></div>
+            <div id="rescuedByUnit" class="rescued-values">—</div>
+            <small>Completed request quantities</small>
+          </article>
+        </div>
+
+        <div class="quick-grid">
+          <button class="quick-card" data-section="users">
+            <span>👥</span><strong>Manage Users</strong>
+            <small>Review and activate accounts</small>
+          </button>
+          <button class="quick-card" data-section="ngos">
+            <span>🤝</span><strong>Verify NGOs</strong>
+            <small>Approve eligible organisations</small>
+          </button>
+          <button class="quick-card" data-section="foods">
+            <span>🍲</span><strong>Moderate Food</strong>
+            <small>Remove or restore listings</small>
+          </button>
+          <button class="quick-card" data-section="requests">
+            <span>📦</span><strong>Track Requests</strong>
+            <small>Monitor donation requests</small>
+          </button>
+        </div>
+      </section>
+
+      <section id="usersSection" class="content-section" hidden>
+        <div class="section-heading">
+          <div><h2>Registered Users</h2><p>Manage accounts across MealBridge.</p></div>
+          <input id="userSearch" class="search-input" placeholder="Search name, email, role..." aria-label="Search users">
+        </div>
+        <div class="table-card">
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Phone</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody id="usersTable"><tr><td colspan="6" class="empty-cell">Loading users...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="ngosSection" class="content-section" hidden>
+        <div class="section-heading">
+          <div><h2>NGO Verification</h2><p>Review NGO partner verification status.</p></div>
+          <input id="ngoSearch" class="search-input" placeholder="Search NGO name or email..." aria-label="Search NGOs">
+        </div>
+        <div class="table-card">
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Organisation / Name</th><th>Email</th><th>Phone</th><th>Verification</th><th>Action</th></tr></thead>
+              <tbody id="ngosTable"><tr><td colspan="5" class="empty-cell">Loading NGOs...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="foodsSection" class="content-section" hidden>
+        <div class="section-heading">
+          <div><h2>Food Listings</h2><p>Review listings and manage public availability.</p></div>
+          <input id="foodSearch" class="search-input" placeholder="Search food or provider..." aria-label="Search food listings">
+        </div>
+        <div class="table-card">
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Food</th><th>Quantity</th><th>Provider</th><th>Expiry</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody id="foodsTable"><tr><td colspan="6" class="empty-cell">Loading food listings...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="requestsSection" class="content-section" hidden>
+        <div class="section-heading">
+          <div><h2>Donation Requests</h2><p>View requests submitted by NGO partners.</p></div>
+          <input id="requestSearch" class="search-input" placeholder="Search food, NGO, status..." aria-label="Search donation requests">
+        </div>
+        <div class="table-card">
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Food</th><th>Mess Provider</th><th>NGO</th><th>Quantity Requested</th><th>Status</th><th>Requested At</th></tr></thead>
+              <tbody id="requestsTable"><tr><td colspan="6" class="empty-cell">Loading requests...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">MealBridge · Connecting surplus food with communities in need.</footer>
+    </main>
+  </div>
+  <div id="confirmModal" class="modal-overlay" hidden>
+  <div class="confirm-modal" role="dialog" aria-modal="true"
+       aria-labelledby="modalTitle">
+    <div id="modalIcon" class="modal-icon">⚠️</div>
+    <h2 id="modalTitle">Confirm Action</h2>
+    <p id="modalMessage">Are you sure you want to continue?</p>
+
+    <div id="reasonField" class="reason-field" hidden>
+      <label for="modalReason">Reason for removing this food</label>
+      <textarea id="modalReason" rows="3"
+        placeholder="Enter the reason..."></textarea>
+    </div>
+
+    <div class="modal-actions">
+      <button type="button" id="modalCancel" class="modal-cancel">
+        Cancel
+      </button>
+      <button type="button" id="modalConfirm" class="modal-confirm">
+        Confirm
+      </button>
+    </div>
+  </div>
+</div>
+
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
+

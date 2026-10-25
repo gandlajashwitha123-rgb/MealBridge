@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Available Food | MealBridge</title>
+
+    <link rel="stylesheet" href="css/ngo.css">
+
+    <style>
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .page-header h1 {
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            margin: 0;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .food-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eee;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 9px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .food-card h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #218c65;
+            overflow-wrap: anywhere;
+        }
+
+        .food-card p {
+            margin: 10px 0;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        .food-category {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #e4f7ed;
+            color: #18794e;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .request-btn {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            border: none;
+            border-radius: 9px;
+            background: #218c65;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .request-btn:hover {
+            background: #176b4c;
+        }
+
+        .refresh-btn {
+            padding: 11px 18px;
+            border: none;
+            border-radius: 9px;
+            background: #218c65;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .refresh-btn:hover {
+            background: #176b4c;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 35px 15px;
+            background: #fff;
+            border-radius: 14px;
+            color: #666;
+            grid-column: 1 / -1;
+        }
+
+        .food-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .page-header {
+                align-items: flex-start;
+            }
+
+            .refresh-btn {
+                width: 100%;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <a class="brand" href="index.html">🍱 MealBridge</a>
+
+        <nav>
+            <a href="ngo-dashboard.html">Dashboard</a>
+            <a href="available-food.html" class="active">Available Food</a>
+            <a href="my-requests.html">My Requests</a>
+            <button type="button" id="logoutBtn" class="logout">Logout</button>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <div id="message" class="message" hidden></div>
+
+        <section class="page-header">
+            <div>
+                <h1>🍱 Available Food</h1>
+                <p>Discover surplus food and request what your NGO needs.</p>
+            </div>
+
+            <button type="button" id="refreshBtn" class="refresh-btn">
+                ↻ Refresh Food
+            </button>
+        </section>
+
+        <section>
+            <div id="foodList" class="food-grid">
+                <div class="empty-message">
+                    Loading available food...
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/available-food.js"></script>
+
+</body>
+</html>

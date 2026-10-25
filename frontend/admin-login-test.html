@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MealBridge Admin Login</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef4ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 350px;
+            max-width: calc(100% - 60px);
+            box-shadow: 0 8px 25px #0002;
+        }
+
+        h2 {
+            color: #2457a7;
+            text-align: center;
+        }
+
+        input, button {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        input {
+            border: 1px solid #ccc;
+        }
+
+        button {
+            border: none;
+            background: #2457a7;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #194582;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: center;
+            color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>🍱 MealBridge Admin</h2>
+        <p>Log in to access the administrator dashboard.</p>
+
+        <form id="loginForm">
+            <input
+                type="email"
+                id="email"
+                placeholder="Admin email"
+                autocomplete="username"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Admin password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit" id="loginButton">
+                Login
+            </button>
+        </form>
+
+        <p id="message" role="status" aria-live="polite"></p>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const loginButton = document.getElementById("loginButton");
+        const message = document.getElementById("message");
+
+        loginForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            message.textContent = "";
+            loginButton.disabled = true;
+            loginButton.textContent = "Logging in...";
+
+            try {
+                const response = await fetch(
+                    "http://localhost:5000/api/auth/login",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            email: document.getElementById("email").value.trim(),
+                            password: document.getElementById("password").value
+                        })
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    message.textContent =
+                        data.message || "Login failed. Please check your credentials.";
+                    return;
+                }
+
+                const token = data.token || data.accessToken || "";
+                const user = data.user || {};
+
+                if (!token) {
+                    message.textContent =
+                        "Login failed: authentication token was not received.";
+                    return;
+                }
+
+                if (user.role !== "admin") {
+                    message.textContent =
+                        "Access denied. Only administrators can log in here.";
+                    return;
+                }
+
+                // Save the authenticated admin session.
+                localStorage.setItem("token", token);
+                localStorage.setItem("user", JSON.stringify(user));
+
+                message.style.color = "#16834a";
+                message.textContent = "Login successful! Opening dashboard...";
+
+                // Open the admin dashboard.
+                window.location.href = "admin-dashboard.html";
+
+            } catch (error) {
+                message.textContent =
+                    "Cannot connect to the server. Please ensure the backend is running.";
+            } finally {
+                loginButton.disabled = false;
+                loginButton.textContent = "Login";
+            }
+        });
+    </script>
+</body>
+</html>
+

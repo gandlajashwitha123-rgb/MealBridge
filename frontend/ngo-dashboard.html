@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MealBridge | NGO Dashboard</title>
+  <link rel="stylesheet" href="css/ngo.css">
+
+  <style>
+    #logoutBtn {
+      cursor: pointer;
+      border: none;
+      font: inherit;
+      color: white;
+      background: #e74c3c;
+      padding: 10px 18px;
+      border-radius: 8px;
+      position: relative;
+      z-index: 1000;
+      pointer-events: auto;
+    }
+
+    #logoutBtn:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">🍱 MealBridge</a>
+
+    <nav>
+      <a class="active" href="ngo-dashboard.html">Dashboard</a>
+      <a href="available-food.html">Available Food</a>
+      <a href="my-requests.html">My Requests</a>
+
+      <button type="button" id="logoutBtn" class="logout">
+        Logout
+      </button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">NGO / FOOD RESCUE PARTNER</p>
+        <h1>Welcome, <span id="ngoName">Partner</span>! 👋</h1>
+        <p>Rescue surplus food and help your community.</p>
+      </div>
+
+      <div class="welcome-icon">🥗</div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <span>🍲</span>
+        <p>Available Food Listings</p>
+        <h2 id="availableCount">—</h2>
+      </article>
+
+      <article class="stat-card">
+        <span>📨</span>
+        <p>My Requests</p>
+        <h2 id="requestCount">—</h2>
+      </article>
+
+      <article class="stat-card">
+        <span>✅</span>
+        <p>Accepted Requests</p>
+        <h2 id="acceptedCount">—</h2>
+      </article>
+
+      <article class="stat-card">
+        <span>🎉</span>
+        <p>Completed Pickups</p>
+        <h2 id="completedCount">—</h2>
+      </article>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <h2>Fresh opportunities</h2>
+        <p>Food donations that may be available for rescue.</p>
+      </div>
+
+      <a class="primary-btn" href="available-food.html">
+        Browse All Food →
+      </a>
+    </section>
+
+    <div id="message" class="message" hidden></div>
+
+    <section id="foodList" class="food-grid">
+      <p>Loading available food...</p>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <h2>Recent requests</h2>
+        <p>Track your latest food requests.</p>
+      </div>
+
+      <a class="secondary-btn" href="my-requests.html">
+        View All Requests
+      </a>
+    </section>
+
+    <section id="recentRequests" class="request-list">
+      <p>Loading requests...</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 MealBridge · Connecting surplus food with people in need 💚
+  </footer>
+
+  <script>
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      sessionStorage.clear();
+
+      window.location.assign("login.html");
+    });
+  </script>
+
+  <script src="js/ngo.js"></script>
+</body>
+</html>
